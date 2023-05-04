@@ -16,3 +16,6 @@ An Android App for Indoor Navigation in College Blocks using 360-Degree Images
 - Java programming language for Android app development
 - Android Studio Integrated Development Environment (IDE)
 - Git for version control and collaboration
+
+**ATTRIBUTIONS**
+<a href="https://www.flaticon.com/free-icons/navigation" title="navigation icons">Navigation icons created by Freepik - Flaticon</a>

@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Campus Compass</string>
+    <string-array name="places_array">
+        <item>LH301</item>
+        <item>LH302</item>
+        <item>BTE</item>
+        <item>RK</item>
+        <item>LH506</item>
+        <item>LH501</item>
+    </string-array>
+    <string-array name="floor_array">
+        <item>Ground</item>
+        <item>First</item>
+        <item>Second</item>
+        <item>Third</item>
+        <item>Fourth</item>
+        <item>Fifth</item>
+    </string-array>
 </resources>
