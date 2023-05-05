@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.Manifest;
@@ -33,7 +34,7 @@ public class ExploreActivity extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
 //    VrPanoramaView v;
     TextView wifi_name;
-    Spinner source, dest, floor_spinner;
+    Spinner source, dest;
     WifiManager wifiManager;
 
     @Override
@@ -48,19 +49,14 @@ public class ExploreActivity extends AppCompatActivity {
 //        } catch (Exception e) {
 //
 //        }
-
+        Button[] pills = new Button[4];
         source = findViewById(R.id.source);
         dest = findViewById(R.id.dest);
-        floor_spinner = findViewById(R.id.floor_spinner);
 
         ArrayAdapter<CharSequence> places = ArrayAdapter.createFromResource(this, R.array.places_array, android.R.layout.simple_spinner_item);
         places.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         source.setAdapter(places);
         dest.setAdapter(places);
-
-        ArrayAdapter<CharSequence> floors = ArrayAdapter.createFromResource(this, R.array.floor_array, android.R.layout.simple_spinner_item);
-        floors.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        floor_spinner.setAdapter(floors);
 
         wifi_name=findViewById(R.id.wifi_name);
         checkLocation();
@@ -116,17 +112,24 @@ public class ExploreActivity extends AppCompatActivity {
             }
         });
 
-        floor_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                Log.i("GTOUTOUT", "Nothing Selected");
-            }
-        });
+        for (int i = 0; i < pills.length; i++) {
+            pills[i] = findViewById(getResources().getIdentifier("pill" + (i + 1), "id", getPackageName()));
+            final int index = i;
+            pills[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    for (int j = 0; j < pills.length; j++) {
+                        if (j == index) {
+                            pills[j].setBackgroundResource(R.drawable.selected_pill);
+                        } else {
+                            pills[j].setBackgroundResource(R.drawable.pill_tab);
+                        }
+                    }
+                }
+            });
+        }
 
+        // ToDo: set selected_pill floor button by nearest WiFi name
     }
 
     private void scanSuccess() {

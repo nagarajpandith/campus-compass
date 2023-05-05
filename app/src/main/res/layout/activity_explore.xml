@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:backgroundTint="#E8FFFFFF">
 
     <!--    <com.google.vr.sdk.widgets.pano.VrPanoramaView-->
     <!--        android:id="@+id/image"-->
@@ -14,71 +16,6 @@
     <!--        app:layout_constraintEnd_toEndOf="parent"-->
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/header"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        app:cardBackgroundColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.142">
-
-        <TextView
-            android:id="@+id/heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/font1"
-            android:text="Admin Block (APJ block)"
-            android:textColor="#000000" />
-    </androidx.cardview.widget.CardView>
-
-    <Spinner
-        android:id="@+id/source"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.116"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <ImageView
-        android:id="@+id/wifi_icon"
-        android:layout_width="16dp"
-        android:layout_height="15dp"
-        android:translationX="-5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.385"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101"
-        app:srcCompat="@drawable/wifi" />
-
-    <TextView
-        android:id="@+id/source_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font1"
-        android:labelFor="@+id/source"
-        android:text="Start from"
-        android:textColor="#000000"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
 
     <TextView
         android:id="@+id/wifi_name"
@@ -90,54 +27,136 @@
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.102" />
+        app:layout_constraintVertical_bias="0.022" />
 
-    <TextView
-        android:id="@+id/source_label3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font1"
-        android:labelFor="@+id/floor_spinner"
-        android:text="Floor"
-        android:textColor="#000000"
-        android:textSize="12sp"
+    <ImageView
+        android:id="@+id/wifi_icon"
+        android:layout_width="16dp"
+        android:layout_height="15dp"
+        android:contentDescription="Wif"
+        android:translationX="-5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.744"
+        app:layout_constraintHorizontal_bias="0.374"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/wifi" />
 
-    <TextView
-        android:id="@+id/dest_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font1"
-        android:labelFor="@+id/dest"
-        android:text="Go to"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
-        android:textColor="#000000"
-        android:textSize="12sp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dropdown_container"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.42"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.209" />
+        app:layout_constraintVertical_bias="0.144">
 
-    <Spinner
-        android:id="@+id/dest"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TextView
+                android:id="@+id/source_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:labelFor="@+id/source"
+                android:text="Start from"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/dest_label"
+                app:layout_constraintHorizontal_bias="0.096"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.200" />
+
+            <Spinner
+                android:id="@+id/source"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.049"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.74" />
+
+            <TextView
+                android:id="@+id/dest_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/font1"
+                android:labelFor="@+id/dest"
+                android:text="Go to"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.608"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.200" />
+
+            <Spinner
+                android:id="@+id/dest"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.839"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.74" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249" />
+        app:layout_constraintVertical_bias="0.062">
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/font1"
+            android:text="Admin Block (APJ block)"
+            android:textColor="#000000" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_gravity="center_vertical"
+            android:translationX="20dp"
+            app:srcCompat="@drawable/logo" />
+    </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/info_card"
@@ -147,12 +166,13 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.304">
+        app:layout_constraintVertical_bias="0.963">
 
         <TextView
             android:id="@+id/info_text"
@@ -160,7 +180,7 @@
             android:layout_height="14dp"
             android:layout_gravity="center"
             android:fontFamily="@font/font1"
-            android:text="Source determined by closest WiFi. Edit as desired."
+            android:text="Floor determined by closest WiFi. Edit as desired."
             android:textColor="#000000"
             android:textSize="10sp" />
 
@@ -173,44 +193,135 @@
             app:srcCompat="@drawable/info" />
     </androidx.cardview.widget.CardView>
 
-    <Spinner
-        android:id="@+id/floor_spinner"
-        android:layout_width="100dp"
-        android:layout_height="30dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Light"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/map_container"
+        android:layout_width="match_parent"
+        android:layout_height="410dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.249" />
+        app:layout_constraintVertical_bias="0.582">
 
-    <TextView
-        android:id="@+id/brand_name"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:fontFamily="@font/font1"
-        android:gravity="center_vertical"
-        android:text="Campus Compass"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="410dp">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+            <Button
+                android:id="@+id/pill4"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:background="@drawable/pill_tab"
+                android:text="Fifth"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.944"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.04" />
+
+            <Button
+                android:id="@+id/pill2"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:background="@drawable/pill_tab"
+                android:text="Third"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.04" />
+
+            <Button
+                android:id="@+id/pill3"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:background="@drawable/pill_tab"
+                android:text="Fourth"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.04" />
+
+            <Button
+                android:id="@+id/pill1"
+                android:layout_width="65dp"
+                android:layout_height="25dp"
+                android:background="@drawable/pill_tab"
+                android:text="Second"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.04" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02"
-        app:srcCompat="@drawable/logo" />
+        app:layout_constraintVertical_bias="0.909">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <Button
+                android:id="@+id/generate"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="#E6394F"
+                android:capitalize="none"
+                android:fontFamily="@font/font1"
+                android:text="Generate"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.111"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/showPath"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:background="@drawable/rounded_corner"
+                android:backgroundTint="#E6394F"
+                android:capitalize="none"
+                android:fontFamily="@font/font1"
+                android:text="Show Path"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.876"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
