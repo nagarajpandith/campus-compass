@@ -62,7 +62,6 @@ public class ExploreActivity extends AppCompatActivity {
 
         wifi_name=findViewById(R.id.wifi_name);
         checkLocation();
-        checkWifi();
 
         wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 
@@ -179,29 +178,5 @@ public class ExploreActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.cancel());
         AlertDialog alert = builder.create();
         alert.show();
-    }
-
-    private void checkWifi(){
-        WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        boolean isWifiEnabled = wifiManager.isWifiEnabled();
-        if(isWifiEnabled)
-            return;
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("This app requires WiFi to function properly. Please enable WiFi in your device settings.")
-                .setCancelable(false)
-                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
-                        startActivity(intent);
-                    }
-                })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-        AlertDialog alert = builder.create();
-        alert.show();
-
     }
 }
