@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ExploreActivity extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
-//    VrPanoramaView v;
+    Button explore;
     TextView wifi_name;
     Spinner source, dest;
     WifiManager wifiManager;
@@ -41,14 +41,16 @@ public class ExploreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
-//        v = findViewById(R.id.image);
-//        VrPanoramaView.Options options = new VrPanoramaView.Options();
-//        try {
-//            options.inputType = VrPanoramaView.Options.TYPE_MONO;
-//            v.loadImageFromBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.lh312), options);
-//        } catch (Exception e) {
-//
-//        }
+
+        explore=findViewById(R.id.showPath);
+
+        explore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(getApplicationContext(),PathActivity.class);
+                startActivity(i);
+            }
+        });
         Button[] pills = new Button[4];
         source = findViewById(R.id.source);
         dest = findViewById(R.id.dest);
