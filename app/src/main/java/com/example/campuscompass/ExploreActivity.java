@@ -89,6 +89,7 @@ public class ExploreActivity extends AppCompatActivity {
         }
         else{
             wifiManager.startScan();
+
         }
 
         source.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -143,6 +144,19 @@ public class ExploreActivity extends AppCompatActivity {
         List<ScanResult> results = wifiManager.getScanResults();
         if(!results.isEmpty()){
             wifi_name.setText(results.get(0).SSID);
+        }
+        ScanResult bestSignal = null;
+        for (ScanResult result : results) {
+            if (bestSignal == null || WifiManager.compareSignalLevel(bestSignal.level, result.level) < 0) {
+                bestSignal = result;
+            }
+        }
+        if (bestSignal != null) {
+            String ssid = bestSignal.SSID;
+            String bssid = bestSignal.BSSID;
+            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
+            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
+            wifi_name.setText(message);
         }
     }
 
