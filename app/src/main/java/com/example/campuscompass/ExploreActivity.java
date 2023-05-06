@@ -2,7 +2,6 @@ package com.example.campuscompass;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
@@ -21,12 +20,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.Manifest;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-
-//import com.google.vr.sdk.widgets.pano.VrPanoramaView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.List;
 
@@ -39,6 +38,8 @@ public class ExploreActivity extends AppCompatActivity {
 
     String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab", "LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffrom", "CS Staffrom 3rd Floor", "Texas Instruments Lab", "CSL01", "CSL02", "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin", "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG", "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08", "CFR03", "CS Staffrom 5th Floor"};
     int []placesLevels={2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
+    int selectedLevel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,7 +125,12 @@ public class ExploreActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     for (int j = 0; j < pills.length; j++) {
                         if (j == index) {
+                            selectedLevel = index;
                             pills[j].setBackgroundResource(R.drawable.selected_pill);
+                            if(index==0){replaceFragment(new SecondFloor());}
+                            if(index==1){replaceFragment(new ThirdFloor());}
+                            if(index==2){replaceFragment(new FourthFloor());}
+                            if(index==3){replaceFragment(new FifthFloor());}
                         } else {
                             pills[j].setBackgroundResource(R.drawable.pill_tab);
                         }
@@ -134,6 +140,13 @@ public class ExploreActivity extends AppCompatActivity {
         }
 
         // ToDo: set selected_pill floor button by nearest WiFi name
+    }
+
+    private void replaceFragment(Fragment f) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.frame,f);
+        ft.commit();
     }
 
     private void scanSuccess() {
@@ -153,13 +166,13 @@ public class ExploreActivity extends AppCompatActivity {
                 bestSignal = result;
             }
         }
-        if (bestSignal != null) {
-            String ssid = bestSignal.SSID;
-            String bssid = bestSignal.BSSID;
-            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
-            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
-            wifi_name.setText(message);
-        }
+//        if (bestSignal != null) {
+//            String ssid = bestSignal.SSID;
+//            String bssid = bestSignal.BSSID;
+//            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
+//            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
+//            wifi_name.setText(message);
+//        }
     }
 
 
