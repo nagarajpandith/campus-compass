@@ -147,11 +147,6 @@ public class ExploreActivity extends AppCompatActivity {
                             if(index==1){replaceFragment(new ThirdFloor());}
                             if(index==2){replaceFragment(new FourthFloor());}
                             if(index==3){replaceFragment(new FifthFloor());}
-                            sourceAdapter.clear();
-                            sourceAdapter.addAll(places);
-
-                            destAdapter.clear();
-                            destAdapter.addAll(places);
                         } else {
                             pills[j].setBackgroundResource(R.drawable.pill_tab);
                         }
