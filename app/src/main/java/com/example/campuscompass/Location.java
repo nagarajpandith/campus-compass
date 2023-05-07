@@ -86,4 +86,6 @@ public class Location {
     public void setBack(Location back) {
         this.back = back;
     }
+
+    public void setStairs(Location stairs){this.stairs=stairs;}
 }

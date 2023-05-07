@@ -45,12 +45,14 @@ public class SecondFloor extends Fragment {
         placesPositionMapping.put(5,6);
         placesPositionMapping.put(1,7);
 
-        Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5],places[8])),new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft,PlacePosition.topRight)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
+        Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5],places[8])),new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft,PlacePosition.topRight)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 180f, null, null, null, null, null);
         Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[7],"StaffRoom","StaffRoom")),new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft,PlacePosition.right,PlacePosition.bottomRight)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
         Location node2 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[6],"StaffRoom")),new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight,PlacePosition.left)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
-        Location node3 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[4],places[10],"Washroom")),new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight,PlacePosition.bottomRight,PlacePosition.right)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
-        Location node4 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[11],places[2],places[3])),new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight,PlacePosition.topLeft,PlacePosition.right)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
+        Location node3 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[4],places[10],"Washroom")),new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight,PlacePosition.bottomRight,PlacePosition.right)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 45f, null, null, null, null, null);
+        Location node4 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[11],places[2],places[3])),new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight,PlacePosition.topLeft,PlacePosition.right)), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 135f, null, null, null, null, null);
         Location node5 = new Location("Balcony", new ArrayList<String>(),new ArrayList<Integer>(), getImageResourceId(getContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
+        Location stairs1=new Location("Stairs1",new ArrayList<>(),new ArrayList<>(),getImageResourceId(getContext(),"stairs.jpg"),2, true, 0f, null, null, null, null, null);
+        Location stairs2=new Location("Stairs2",new ArrayList<>(),new ArrayList<>(),getImageResourceId(getContext(),"stairs.jpg"),2, true, 0f, null, null, null, null, null);
 
         node0.setLeft(node1);
         node0.setRight(node5);
@@ -71,6 +73,14 @@ public class SecondFloor extends Fragment {
 
         node5.setBack(node4);
         node5.setLeft(node0);
+
+        node0.setStairs(stairs1);
+        node5.setStairs(stairs2);
+        node4.setStairs(stairs2);
+
+        stairs1.setFront(node0);
+
+        stairs2.setLeft(node5);
 
         locations=new Location[]{node0,node1,node2,node3,node4,node5};
         for(int i=0;i<6;i++){

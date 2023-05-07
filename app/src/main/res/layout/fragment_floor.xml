@@ -131,20 +131,20 @@
                 android:id="@+id/leftNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/Node1"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/rightNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -155,19 +155,19 @@
                 android:id="@+id/bottomleftNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomrightNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
     </TableLayout>
@@ -191,19 +191,19 @@
                 android:id="@+id/topleftNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/topNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/toprightNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -214,20 +214,20 @@
                 android:id="@+id/leftNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/Node2"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/rightNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -238,19 +238,19 @@
                 android:id="@+id/bottomleftNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomrightNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
     </TableLayout>
@@ -273,19 +273,19 @@
                 android:id="@+id/topleftNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/topNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/toprightNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
         </TableRow>
 
@@ -297,20 +297,20 @@
                 android:id="@+id/leftNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/Node3"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/rightNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -321,19 +321,19 @@
                 android:id="@+id/bottomleftNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomrightNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
     </TableLayout>
@@ -357,19 +357,19 @@
                 android:id="@+id/topleftNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/topNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/toprightNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
         </TableRow>
 
@@ -381,20 +381,20 @@
                 android:id="@+id/leftNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/Node4"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/rightNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -405,19 +405,19 @@
                 android:id="@+id/bottomleftNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomrightNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
     </TableLayout>
@@ -441,19 +441,19 @@
                 android:id="@+id/topleftNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/topNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/toprightNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -464,20 +464,20 @@
                 android:id="@+id/leftNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/Node5"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/rightNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
         <TableRow
@@ -488,21 +488,47 @@
                 android:id="@+id/bottomleftNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/bottomrightNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </TableRow>
 
     </TableLayout>
+
+    <TextView
+        android:id="@+id/stairs1"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="#0978EF"
+        android:text="Stairs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549" />
+
+    <TextView
+        android:id="@+id/stairs2"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:background="#0978EF"
+        android:text="Stairs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
