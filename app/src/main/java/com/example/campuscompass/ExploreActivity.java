@@ -122,6 +122,12 @@ public class ExploreActivity extends AppCompatActivity {
                 if(src !=null && desti!=null){
                     resetInRoute();
                     setRoute(src,desti);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("level",src.getLevel());
+                    Floor f=new Floor();
+                    f.setArguments(bundle);
+                    replaceFragment(f);
+                    CurrentPointer.current=src;
                 }
             }
             @Override
@@ -138,6 +144,12 @@ public class ExploreActivity extends AppCompatActivity {
                 if(src !=null && desti!=null){
                     resetInRoute();
                     setRoute(src,desti);
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("level",src.getLevel());
+                    Floor f=new Floor();
+                    f.setArguments(bundle);
+                    replaceFragment(f);
+                    CurrentPointer.current=src;
                 }
             }
             @Override
@@ -145,10 +157,6 @@ public class ExploreActivity extends AppCompatActivity {
                 Log.i("GTOUTOUT", "Nothing Selected");
             }
         });
-//        FragmentManager fm = getSupportFragmentManager();
-//        FragmentTransaction ft = fm.beginTransaction();
-//        ft.add(R.id.frame,new Floor());
-//        ft.commit();
 
         for (int i = 0; i < pills.length; i++) {
             pills[i] = findViewById(getResources().getIdentifier("pill" + (i + 1), "id", getPackageName()));
@@ -288,12 +296,12 @@ public class ExploreActivity extends AppCompatActivity {
     private void makeLocations() {
         {
             String[] places = {"LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffroom", "CS Staffroom", "Texas Instruments Lab"};
-            Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList("Balcony", places[4], places[1])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomLeft, PlacePosition.topLeft)), getImageResourceId(getApplicationContext(), "second0.jpg"), 3, false, 180f, null, null, null, null, null);
-            Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[6], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right)), getImageResourceId(getApplicationContext(), "second1.jpg"), 3, false, 0f, null, null, null, null, null);
-            Location node2 = new Location("LH211", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.bottomLeft)), getImageResourceId(getApplicationContext(), "second2.jpg"), 3, false, 0f, null, null, null, null, null);
-            Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[3], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), getImageResourceId(getApplicationContext(), "second3.jpg"), 3, false, 0f, null, null, null, null, null);
-            Location node4 = new Location("BTL07", new ArrayList<String>(Arrays.asList(places[9], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "second4.jpg"), 3, false, 45f, null, null, null, null, null);
-            Location node5 = new Location("Unknown", new ArrayList<String>(Arrays.asList(places[0], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "second4.jpg"), 3, false, 135f, null, null, null, null, null);
+            Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList("Balcony", places[4], places[1])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomLeft, PlacePosition.topLeft)),R.drawable.three0, 3, false, 180f, null, null, null, null, null);
+            Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[6], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right)), getImageResourceId(getApplicationContext(), "three1.jpg"), 3, false, 0f, null, null, null, null, null);
+            Location node2 = new Location("LH211", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.bottomLeft)), getImageResourceId(getApplicationContext(), "three2.jpg"), 3, false, 0f, null, null, null, null, null);
+            Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[3], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), getImageResourceId(getApplicationContext(), "three3.jpg"), 3, false, 0f, null, null, null, null, null);
+            Location node4 = new Location("BTL07", new ArrayList<String>(Arrays.asList(places[9], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "three4.jpg"), 3, false, 45f, null, null, null, null, null);
+            Location node5 = new Location("Unknown", new ArrayList<String>(Arrays.asList(places[0], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "three4.jpg"), 3, false, 135f, null, null, null, null, null);
             Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 3, true, 0f, null, null, null, null, null);
             Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 3, true, 0f, null, null, null, null, null);
             makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
@@ -301,15 +309,16 @@ public class ExploreActivity extends AppCompatActivity {
         }
         {
             String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab"};
-            Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.topRight)), getImageResourceId(getApplicationContext(), "three0.jpg"), 2, false, 180f, null, null, null, null, null);
-            Location node1 = new Location("LH301", new ArrayList<String>(Arrays.asList(places[7], "StaffRoom", "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "three0.jpg"), 2, false, 0f, null, null, null, null, null);
-            Location node2 = new Location("LH311", new ArrayList<String>(Arrays.asList(places[6], "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.left)), getImageResourceId(getApplicationContext(), "three2.jpg"), 2, false, 0f, null, null, null, null, null);
-            Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[4], places[10], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)), getImageResourceId(getApplicationContext(), "three3.jpg"), 2, false, 45f, null, null, null, null, null);
-            Location node4 = new Location("LH306", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.topLeft, PlacePosition.right)), getImageResourceId(getApplicationContext(), "three4.jpg"), 2, false, 135f, null, null, null, null, null);
-            Location node5 = new Location("TI Lab", new ArrayList<String>(), new ArrayList<Integer>(), getImageResourceId(getApplicationContext(), "three5.jpg"), 2, false, 0f, null, null, null, null, null);
+            Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.topRight)), R.drawable.second0, 2, false, 180f, null, null, null, null, null);
+            Location node1 = new Location("LH301", new ArrayList<String>(Arrays.asList(places[7], "StaffRoom", "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)),R.drawable.second1 , 2, false, 0f, null, null, null, null, null);
+            Location node2 = new Location("LH311", new ArrayList<String>(Arrays.asList(places[6], "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.left)),R.drawable.second2, 2, false, 0f, null, null, null, null, null);
+            Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[4], places[10], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)), R.drawable.second3, 2, false, 45f, null, null, null, null, null);
+            Location node4 = new Location("LH306", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.topLeft, PlacePosition.right)), R.drawable.second4, 2, false, 135f, null, null, null, null, null);
+            Location node5 = new Location("TI Lab", new ArrayList<String>(), new ArrayList<Integer>(), R.drawable.second4, 2, false, 0f, null, null, null, null, null);
             Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 2, true, 0f, null, null, null, null, null);
             Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 2, true, 0f, null, null, null, null, null);
-
+            node0.setAngle(180);
+            node1.setAngle(180);
             makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
 
             LevelPointer.levels[2] = node0;

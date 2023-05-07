@@ -9,6 +9,7 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -26,7 +27,8 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
 
     ImageButton []arrows=new ImageButton[4];
     float []arrowsAngles={0,180,-90,90};
-
+    Location current;
+    Location previousCurrent=null;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,7 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
 
         int pivotX = displayMetrics.widthPixels / 8;
         int pivotY = displayMetrics.heightPixels/4;
+        current=CurrentPointer.current;
 
 
         v = findViewById(R.id.image);
@@ -47,18 +50,61 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
 
         for(int i=0;i<4;i++)
         {
-            Log.d("ajsd", "onCreate: "+pivotX+" "+pivotY);
             arrows[i].setPivotX(pivotX);
             arrows[i].setPivotY(pivotY);
             arrows[i].setRotation(arrowsAngles[i]);
             arrows[i].setRotationX(20);
+            arrows[i].setVisibility(View.INVISIBLE);
         }
+
+        if(current.getFront()!=null && current.getFront().getInRoute()){
+            arrows[0].setVisibility(View.VISIBLE);
+        }
+        if(current.getBack()!=null && current.getBack().getInRoute()){
+            arrows[1].setVisibility(View.VISIBLE);
+        }
+        if(current.getLeft()!=null && current.getLeft().getInRoute()){
+            arrows[2].setVisibility(View.VISIBLE);
+        }
+        if(current.getRight()!=null && current.getRight().getInRoute()){
+            arrows[3].setVisibility(View.VISIBLE);
+        }
+
+        arrows[0].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getFront();
+                reCalibrate();
+            }
+        });
+        arrows[1].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getBack();
+                reCalibrate();
+            }
+        });
+        arrows[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getLeft();
+                reCalibrate();
+            }
+        });
+        arrows[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getRight();
+                reCalibrate();
+            }
+        });
+
         sensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
         gyroSensor=sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
         VrPanoramaView.Options options = new VrPanoramaView.Options();
         try {
             options.inputType = VrPanoramaView.Options.TYPE_MONO;
-            v.loadImageFromBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.lh312), options);
+            v.loadImageFromBitmap(BitmapFactory.decodeResource(getResources(), current.getImage()), options);
         } catch (Exception e) {
 
         }
@@ -80,15 +126,11 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
     public void onSensorChanged(SensorEvent sensorEvent) {
             if(sensorEvent.sensor.getType()==Sensor.TYPE_GYROSCOPE)
             {
-//                float x= sensorEvent.values[0];
-//                float y= sensorEvent.values[1];
-//                float z= sensorEvent.values[2];
-//                float deltaAngle=y*(sensorEvent.timestamp-previousTimestamp)/1000000000.0f;
                 float []yawAndPitch=new float[2];
                 v.getHeadRotation(yawAndPitch);
                 for(int i=0;i<4;i++)
                 {
-                    arrows[i].setRotation(arrowsAngles[i]-yawAndPitch[0]);
+                    arrows[i].setRotation(arrowsAngles[i]-yawAndPitch[0]+current.getAngle());
                 }
             }
     }
@@ -96,5 +138,32 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
 
+    }
+
+    private void reCalibrate(){
+        for(int i=0;i<4;i++)
+        {
+            arrows[i].setVisibility(View.INVISIBLE);
+        }
+
+        if(current.getFront()!=null && current.getFront().getInRoute()){
+            arrows[0].setVisibility(View.VISIBLE);
+        }
+        if(current.getBack()!=null && current.getBack().getInRoute()){
+            arrows[1].setVisibility(View.VISIBLE);
+        }
+        if(current.getLeft()!=null && current.getLeft().getInRoute()){
+            arrows[2].setVisibility(View.VISIBLE);
+        }
+        if(current.getRight()!=null && current.getRight().getInRoute()){
+            arrows[3].setVisibility(View.VISIBLE);
+        }
+        VrPanoramaView.Options options = new VrPanoramaView.Options();
+        try {
+            options.inputType = VrPanoramaView.Options.TYPE_MONO;
+            v.loadImageFromBitmap(BitmapFactory.decodeResource(getResources(), current.getImage()), options);
+        } catch (Exception e) {
+
+        }
     }
 }
