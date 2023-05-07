@@ -45,8 +45,8 @@ public class ExploreActivity extends AppCompatActivity {
     WifiManager wifiManager;
     int curFloor;
     int selectedLevel;
-    String []places = {"BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab", "LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffroom", "CS Staffroom", "Texas Instruments Lab", "CSL01", "CSL02", "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin", "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG", "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08", "CFR03", "CS Staffrom 5th Floor"};
-    int []placesLevels={2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
+    String []places = {"BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab", "LH306", "LH308", "LH309", "LH310", "LH311", "LH312", "EC Staffroom", "CS Staffroom", "Texas Instruments Lab", "CSL01", "CSL02", "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin", "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG", "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08", "CFR03", "CS Staffrom 5th Floor"};
+    int []placesLevels={2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
     List <String> wifi=new ArrayList<>(Arrays.asList("AndroidAP","Redmi7"));
     List<String> wifi2 = new ArrayList<>(Arrays.asList("BT-STUDENT","BT-STAFF"));
     List<String> wifi3 = new ArrayList<>(Arrays.asList("LH310-WiFi","LH312-WiFi","CCPLAB-WiFi"));
@@ -54,6 +54,7 @@ public class ExploreActivity extends AppCompatActivity {
     List<String> wifi5 = new ArrayList<>(Arrays.asList("ADALAB","BT-STAFF","CCPLAB-WiFi"));
 
     Location src=null,desti=null;
+    Location newSrc;
 
     Deque<Location> traverse=new LinkedList<Location>();
     Deque<Location> smallest=new LinkedList<Location>();
@@ -144,10 +145,10 @@ public class ExploreActivity extends AppCompatActivity {
                 Log.i("GTOUTOUT", "Nothing Selected");
             }
         });
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.frame,new ThirdFloor());
-        ft.commit();
+//        FragmentManager fm = getSupportFragmentManager();
+//        FragmentTransaction ft = fm.beginTransaction();
+//        ft.add(R.id.frame,new Floor());
+//        ft.commit();
 
         for (int i = 0; i < pills.length; i++) {
             pills[i] = findViewById(getResources().getIdentifier("pill" + (i + 1), "id", getPackageName()));
@@ -158,11 +159,11 @@ public class ExploreActivity extends AppCompatActivity {
                     for (int j = 0; j < pills.length; j++) {
                         if (j == index) {
                             selectedLevel = index+2;
-                            pills[j].setBackgroundResource(R.drawable.selected_pill);
-                            if(index==0){replaceFragment(new SecondFloor());}
-                            if(index==1){replaceFragment(new ThirdFloor());}
-                            if(index==2){replaceFragment(new FourthFloor());}
-                            if(index==3){replaceFragment(new FifthFloor());}
+                                Bundle bundle = new Bundle();
+                                bundle.putInt("level",selectedLevel);
+                                Floor f=new Floor();
+                                f.setArguments(bundle);
+                                replaceFragment(f);
                         } else {
                             pills[j].setBackgroundResource(R.drawable.pill_tab);
                         }
@@ -315,17 +316,15 @@ public class ExploreActivity extends AppCompatActivity {
         }
 
         //connecting stairs
-        LevelPointer.levels[2].getStairs().setStairs(LevelPointer.levels[3].getStairs());
+        LevelPointer.levels[2].getStairs().setUp(LevelPointer.levels[3].getStairs());
         LevelPointer.levels[2].setStairsAngle(-10);
 
-        LevelPointer.levels[3].getStairs().setStairs(LevelPointer.levels[2].getStairs());
+        LevelPointer.levels[3].getStairs().setDown(LevelPointer.levels[2].getStairs());
         LevelPointer.levels[3].setStairsAngle(10);
 
-        LevelPointer.levels[2].getRight().getStairs().setStairs(LevelPointer.levels[3].getRight().getStairs());
-        LevelPointer.levels[2].getRight().setStairsAngle(-10);
+        LevelPointer.levels[2].getRight().getStairs().setUp(LevelPointer.levels[3].getRight().getStairs());
 
-        LevelPointer.levels[3].getRight().getStairs().setStairs(LevelPointer.levels[2].getRight().getStairs());
-        LevelPointer.levels[3].getRight().setStairsAngle(10);
+        LevelPointer.levels[3].getRight().getStairs().setDown(LevelPointer.levels[2].getRight().getStairs());
 
     }
     public static int getImageResourceId(Context context, String imageName) {
@@ -359,7 +358,8 @@ public class ExploreActivity extends AppCompatActivity {
 
         stairs1.setFront(node0);
 
-        stairs2.setLeft(node5);
+        stairs2.setFront(node5);
+        stairs2.setBack(node4);
     }
 
     private Location getLocation(String src,int level){
@@ -381,8 +381,10 @@ public class ExploreActivity extends AppCompatActivity {
 
         if(node.getPlaces().indexOf(src)!=-1)
             return node;
-        return node.getFront();
 
+        if(node.getPlaces().indexOf(src)!=-1)
+            return node.getFront();
+        return null;
     }
 
     private void setRoute(Location src,Location desti){
@@ -391,20 +393,40 @@ public class ExploreActivity extends AppCompatActivity {
             findSmallestRoute(src,desti);
             smallest.forEach(element->{
                 element.setInRoute(true);
-                Log.d("taggg",element.toString());
             });
         }
         else{
-
+            findSmallestRouteStairs(src);
+            smallest.forEach(element->{
+                element.setInRoute(true);
+            });
+            smallest.clear();
+            smallest.addFirst(null);
+            smallest.addFirst(null);
+            smallest.addFirst(null);
+            smallest.addFirst(null);
+            smallest.addFirst(null);
+            smallest.addFirst(null);
+            while (newSrc.getLevel()!=desti.getLevel()){
+//                Log.d("hello", "setRoute: "+newSrc.getName()+" "+newSrc.getLevel()+" "+newSrc.getDown().toString());
+                if(newSrc.getLevel()<desti.getLevel()){
+                    newSrc=newSrc.getUp();
+                    newSrc.setInRoute(true);
+                }
+                else{
+                    newSrc=newSrc.getDown();
+                    newSrc.setInRoute(true);
+                }
+            }
+            findSmallestRoute(newSrc,desti);
+            smallest.forEach(element->{
+                element.setInRoute(true);
+            });
         }
     }
 
     private void findSmallestRoute(Location src,Location dest){
 
-//        Log.d("sdjsd",src.getLeft()+" left");
-//        Log.d("sdjsd",src.getRight()+" right");
-//        Log.d("sdjsd",src.getFront()+" front");
-//        Log.d("sdjsd",src.getBack()+" back");
         traverse.addLast(src);
         src.setInRoute(true);
 
@@ -438,12 +460,49 @@ public class ExploreActivity extends AppCompatActivity {
         return;
     }
 
+    private void findSmallestRouteStairs(Location srcc){
+        Log.d("ksfd", "findSmallestRouteStairs: "+srcc.getName());
+        traverse.addLast(srcc);
+        srcc.setInRoute(true);
+
+        if(srcc.getStairs()!=null){
+            if(smallest.size()>traverse.size())
+            {
+                smallest.clear();
+                traverse.forEach(element->{
+                    smallest.addFirst(element);
+                });
+                smallest.addFirst(srcc.getStairs());
+                newSrc=srcc.getStairs();
+            }
+            srcc.setInRoute(false);
+            traverse.removeLast();
+            return;
+        }
+
+        if(srcc.getLeft()!=null && !srcc.getLeft().getInRoute())
+            findSmallestRouteStairs(srcc.getLeft());
+
+        if(srcc.getRight()!=null && !srcc.getRight().getInRoute())
+            findSmallestRouteStairs(srcc.getRight());
+
+        if(srcc.getBack()!=null && !srcc.getBack().getInRoute())
+            findSmallestRouteStairs(srcc.getBack());
+
+        if(srcc.getFront()!=null && !srcc.getFront().getInRoute())
+            findSmallestRouteStairs(srcc.getFront());
+        srcc.setInRoute(false);
+        traverse.removeLast();
+        return;
+    }
+
 
 
 
     private void resetInRoute(){
         int []arr={2,3};
         traverse.clear();
+        smallest.clear();
         smallest.addFirst(null);
         smallest.addFirst(null);
         smallest.addFirst(null);
@@ -451,17 +510,17 @@ public class ExploreActivity extends AppCompatActivity {
         smallest.addFirst(null);
         smallest.addFirst(null);
         for(int i=0;i<arr.length;i++){
-            Location node=LevelPointer.levels[i];
+            Location node=LevelPointer.levels[arr[i]];
             if(node==null)
                 continue;
             node.setInRoute(false);
             node.getBack().setInRoute(false);
             node.getLeft().setInRoute(false);
             node.getRight().setInRoute(false);
-            node.getStairs().setInRoute(false);
             node.getRight().getBack().setInRoute(false);
-            node.getRight().getStairs().setInRoute(false);
             node.getLeft().getBack().setInRoute(false);
+            node.getStairs().setInRoute(false);
+            node.getRight().getStairs().setInRoute(false);
         }
 
     }

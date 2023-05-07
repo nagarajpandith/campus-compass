@@ -6,17 +6,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 
-public class SecondFloor extends Fragment {
+public class Floor extends Fragment {
     View v;
     String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab"};
     TextView[][] nodes=new TextView[6][8];
@@ -46,8 +44,9 @@ public class SecondFloor extends Fragment {
         placesPositionMapping.put(4,5);
         placesPositionMapping.put(5,6);
         placesPositionMapping.put(1,7);
+        Bundle bundle = getArguments();
 
-        Location node0 = LevelPointer.levels[2];
+        Location node0 = LevelPointer.levels[bundle.getInt("level")];
         Location node1 = node0.getLeft();
         Location node2 = node1.getBack();
         Location node3 = node2.getRight();
@@ -72,16 +71,22 @@ public class SecondFloor extends Fragment {
         for(int i=0;i<6;i++){
             ArrayList<String> places=locations[i].getPlaces();
             ArrayList<Integer> placePositions=locations[i].getPlacesPositions();
-
+            if(locations[i].getInRoute()){
+                mainNodes[i].setBackgroundColor(Color.rgb(0,255,0));
+            }
             for(int j=0;j<places.size();j++){
 //                Log.d("slkdf", "onCreateView: "+placesPositionMapping.get(placePositions.get(j))+" "+j);
                 nodes[i][placesPositionMapping.get(placePositions.get(j))].setText(places.get(j).toString());
-                if(locations[i].getInRoute()){
-                    mainNodes[i].setBackgroundColor(Color.rgb(0,255,0));
-                }
+
             }
         }
 
+        if(stairs1.getInRoute()){
+            v.findViewById(R.id.stairs1).setBackgroundColor(Color.rgb(0,255,0));
+        }
+        if(stairs2.getInRoute()){
+            v.findViewById(R.id.stairs2).setBackgroundColor(Color.rgb(0,255,0));
+        }
 
         return v;
     }
