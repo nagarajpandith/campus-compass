@@ -33,6 +33,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 public class ExploreActivity extends AppCompatActivity {
@@ -43,13 +45,18 @@ public class ExploreActivity extends AppCompatActivity {
     WifiManager wifiManager;
     int curFloor;
     int selectedLevel;
-    String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab", "LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffroom", "CS Staffroom", "Texas Instruments Lab", "CSL01", "CSL02", "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin", "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG", "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08", "CFR03", "CS Staffrom 5th Floor"};
-    int []placesLevels={2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
+    String []places = {"BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab", "LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffroom", "CS Staffroom", "Texas Instruments Lab", "CSL01", "CSL02", "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin", "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG", "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08", "CFR03", "CS Staffrom 5th Floor"};
+    int []placesLevels={2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
     List <String> wifi=new ArrayList<>(Arrays.asList("AndroidAP","Redmi7"));
     List<String> wifi2 = new ArrayList<>(Arrays.asList("BT-STUDENT","BT-STAFF"));
     List<String> wifi3 = new ArrayList<>(Arrays.asList("LH310-WiFi","LH312-WiFi","CCPLAB-WiFi"));
     List<String> wifi4 = new ArrayList<>(Arrays.asList("CS STUDENT","ECSTAFF-WiFi"));
     List<String> wifi5 = new ArrayList<>(Arrays.asList("ADALAB","BT-STAFF","CCPLAB-WiFi"));
+
+    Location src=null,desti=null;
+
+    Deque<Location> traverse=new LinkedList<Location>();
+    Deque<Location> smallest=new LinkedList<Location>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +117,11 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
+                src=getLocation(places[i],placesLevels[i]);
+                if(src !=null && desti!=null){
+                    resetInRoute();
+                    setRoute(src,desti);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -121,6 +133,11 @@ public class ExploreActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 ((TextView) adapterView.getChildAt(0)).setTextColor(Color.BLACK);
+                desti=getLocation(places[i],placesLevels[i]);
+                if(src !=null && desti!=null){
+                    resetInRoute();
+                    setRoute(src,desti);
+                }
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -282,6 +299,7 @@ public class ExploreActivity extends AppCompatActivity {
             LevelPointer.levels[3] = node0;
         }
         {
+            String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab"};
             Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.topRight)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 180f, null, null, null, null, null);
             Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[7], "StaffRoom", "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
             Location node2 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[6], "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.left)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
@@ -342,5 +360,109 @@ public class ExploreActivity extends AppCompatActivity {
         stairs1.setFront(node0);
 
         stairs2.setLeft(node5);
+    }
+
+    private Location getLocation(String src,int level){
+        Location node =LevelPointer.levels[level];
+
+        if(node.getPlaces().indexOf(src)!=-1)
+            return node;
+        node=node.getLeft();
+        if(node.getPlaces().indexOf(src)!=-1)
+            return node;
+        node=node.getBack();
+        if(node.getPlaces().indexOf(src)!=-1)
+            return node;
+        node=node.getRight();
+
+        if(node.getPlaces().indexOf(src)!=-1)
+            return node;
+        node=node.getRight();
+
+        if(node.getPlaces().indexOf(src)!=-1)
+            return node;
+        return node.getFront();
+
+    }
+
+    private void setRoute(Location src,Location desti){
+        // if there are in same level
+        if(src.getLevel()==desti.getLevel()){
+            findSmallestRoute(src,desti);
+            smallest.forEach(element->{
+                element.setInRoute(true);
+                Log.d("taggg",element.toString());
+            });
+        }
+        else{
+
+        }
+    }
+
+    private void findSmallestRoute(Location src,Location dest){
+
+//        Log.d("sdjsd",src.getLeft()+" left");
+//        Log.d("sdjsd",src.getRight()+" right");
+//        Log.d("sdjsd",src.getFront()+" front");
+//        Log.d("sdjsd",src.getBack()+" back");
+        traverse.addLast(src);
+        src.setInRoute(true);
+
+        if(src==dest){
+            if(smallest.size()>traverse.size())
+            {
+                smallest.clear();
+
+                traverse.forEach(element->{
+                    smallest.addFirst(element);
+                });
+            }
+            src.setInRoute(false);
+            traverse.removeLast();
+            return;
+        }
+
+        if(src.getLeft()!=null && !src.getLeft().getInRoute())
+            findSmallestRoute(src.getLeft(),dest);
+
+        if(src.getRight()!=null && !src.getRight().getInRoute())
+            findSmallestRoute(src.getRight(),dest);
+
+        if(src.getBack()!=null && !src.getBack().getInRoute())
+            findSmallestRoute(src.getBack(),dest);
+
+        if(src.getFront()!=null && !src.getFront().getInRoute())
+            findSmallestRoute(src.getFront(),dest);
+        src.setInRoute(false);
+        traverse.removeLast();
+        return;
+    }
+
+
+
+
+    private void resetInRoute(){
+        int []arr={2,3};
+        traverse.clear();
+        smallest.addFirst(null);
+        smallest.addFirst(null);
+        smallest.addFirst(null);
+        smallest.addFirst(null);
+        smallest.addFirst(null);
+        smallest.addFirst(null);
+        for(int i=0;i<arr.length;i++){
+            Location node=LevelPointer.levels[i];
+            if(node==null)
+                continue;
+            node.setInRoute(false);
+            node.getBack().setInRoute(false);
+            node.getLeft().setInRoute(false);
+            node.getRight().setInRoute(false);
+            node.getStairs().setInRoute(false);
+            node.getRight().getBack().setInRoute(false);
+            node.getRight().getStairs().setInRoute(false);
+            node.getLeft().getBack().setInRoute(false);
+        }
+
     }
 }

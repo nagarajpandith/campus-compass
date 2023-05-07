@@ -16,6 +16,7 @@ public class Location {
     private Location right;
     private Location front;
     private Location back;
+    private boolean inRoute;
 
     public Location(String name, ArrayList<String> places,ArrayList<Integer> placePositions, int image, int level, boolean isStairs, float stairsAngle, Location stairs, Location left, Location right, Location front, Location back) {
         this.name = name;
@@ -30,6 +31,7 @@ public class Location {
         this.front = front;
         this.back = back;
         this.placePositions=placePositions;
+        this.inRoute=false;
     }
 
     public String getName() {
@@ -91,5 +93,9 @@ public class Location {
     public Location getStairs(){return this.stairs;}
     public void setStairsAngle(float angle){this.stairsAngle=angle;}
     public float getStairsAngle(){return this.stairsAngle;}
+
+    public void setInRoute(boolean set){this.inRoute=set;}
+    public boolean getInRoute(){return this.inRoute;}
+
 }
 

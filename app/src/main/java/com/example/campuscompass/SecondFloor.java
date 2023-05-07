@@ -1,6 +1,7 @@
 package com.example.campuscompass;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -19,6 +20,7 @@ public class SecondFloor extends Fragment {
     View v;
     String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab"};
     TextView[][] nodes=new TextView[6][8];
+    TextView[] mainNodes=new TextView[6];
     int[][] ids={
         {R.id.topleftNode0,R.id.topNode0,R.id.toprightNode0,R.id.rightNode0,R.id.bottomrightNode0,R.id.bottomNode0,R.id.bottomleftNode0,R.id.leftNode0},
         {R.id.topleftNode1,R.id.topNode1,R.id.toprightNode1,R.id.rightNode1,R.id.bottomrightNode1,R.id.bottomNode1,R.id.bottomleftNode1,R.id.leftNode1},
@@ -53,6 +55,12 @@ public class SecondFloor extends Fragment {
         Location node5 = node4.getFront();
         Location stairs1=node0.getStairs();
         Location stairs2=node5.getStairs();
+        mainNodes[0]=v.findViewById(R.id.Node0);
+        mainNodes[1]=v.findViewById(R.id.Node1);
+        mainNodes[2]=v.findViewById(R.id.Node2);
+        mainNodes[3]=v.findViewById(R.id.Node3);
+        mainNodes[4]=v.findViewById(R.id.Node4);
+        mainNodes[5]=v.findViewById(R.id.Node5);
 
         locations=new Location[]{node0,node1,node2,node3,node4,node5};
         for(int i=0;i<6;i++){
@@ -68,6 +76,9 @@ public class SecondFloor extends Fragment {
             for(int j=0;j<places.size();j++){
 //                Log.d("slkdf", "onCreateView: "+placesPositionMapping.get(placePositions.get(j))+" "+j);
                 nodes[i][placesPositionMapping.get(placePositions.get(j))].setText(places.get(j).toString());
+                if(locations[i].getInRoute()){
+                    mainNodes[i].setBackgroundColor(Color.rgb(0,255,0));
+                }
             }
         }
 
