@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Location {
     private String name;
     private ArrayList<String> places;
+
+    private ArrayList<Integer>placePositions;
     private int image;
     private int level;
     private boolean isStairs;
@@ -15,7 +17,7 @@ public class Location {
     private Location front;
     private Location back;
 
-    public Location(String name, ArrayList<String> places, int image, int level, boolean isStairs, float stairsAngle, Location stairs, Location left, Location right, Location front, Location back) {
+    public Location(String name, ArrayList<String> places,ArrayList<Integer> placePositions, int image, int level, boolean isStairs, float stairsAngle, Location stairs, Location left, Location right, Location front, Location back) {
         this.name = name;
         this.places = places;
         this.image = image;
@@ -27,6 +29,7 @@ public class Location {
         this.right = right;
         this.front = front;
         this.back = back;
+        this.placePositions=placePositions;
     }
 
     public String getName() {
@@ -35,6 +38,9 @@ public class Location {
 
     public ArrayList<String> getPlaces() {
         return places;
+    }
+    public ArrayList<Integer> getPlacesPositions() {
+        return placePositions;
     }
 
     public int getImage() {

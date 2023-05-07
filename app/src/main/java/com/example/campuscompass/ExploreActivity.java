@@ -50,6 +50,7 @@ public class ExploreActivity extends AppCompatActivity {
     List<String> wifi3 = new ArrayList<>(Arrays.asList("LH310-WiFi","LH312-WiFi","CCPLAB-WiFi"));
     List<String> wifi4 = new ArrayList<>(Arrays.asList("CS STUDENT","ECSTAFF-WiFi"));
     List<String> wifi5 = new ArrayList<>(Arrays.asList("ADALAB","BT-STAFF","CCPLAB-WiFi"));
+    Fragment previousFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +128,10 @@ public class ExploreActivity extends AppCompatActivity {
                 Log.i("GTOUTOUT", "Nothing Selected");
             }
         });
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(R.id.frame,new SecondFloor());
+        ft.commit();
 
         for (int i = 0; i < pills.length; i++) {
             pills[i] = findViewById(getResources().getIdentifier("pill" + (i + 1), "id", getPackageName()));

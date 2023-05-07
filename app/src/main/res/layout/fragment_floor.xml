@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondFloor">
+
+    <TableLayout
+        android:id="@+id/Table0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/topleftNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/topNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/toprightNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/leftNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/Node0"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="#FF0F53"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/rightNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bottomleftNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bottomNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/bottomrightNode0"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/Table1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/topleftNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/topNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/toprightNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/leftNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Node1"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="#FF0F53"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rightNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bottomleftNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomrightNode1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/Table2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/topleftNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/topNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/toprightNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/leftNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Node2"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="#FF0F53"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rightNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bottomleftNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomrightNode2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/Table3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/topleftNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/topNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/toprightNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/leftNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Node3"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="#FF0F53"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rightNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bottomleftNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomrightNode3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/Table4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/topleftNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/topNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/toprightNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/leftNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Node4"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="#FF0F53"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rightNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bottomleftNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomrightNode4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/Table5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.05">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/topleftNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/topNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/toprightNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/leftNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/Node5"
+                android:layout_width="25dp"
+                android:layout_height="match_parent"
+                android:background="#FF0F53"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/rightNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bottomleftNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/bottomrightNode5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textColor="@color/black"/>
+        </TableRow>
+
+    </TableLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
