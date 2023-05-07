@@ -88,4 +88,8 @@ public class Location {
     }
 
     public void setStairs(Location stairs){this.stairs=stairs;}
+    public Location getStairs(){return this.stairs;}
+    public void setStairsAngle(float angle){this.stairsAngle=angle;}
+    public float getStairsAngle(){return this.stairsAngle;}
 }
+

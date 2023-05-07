@@ -55,7 +55,7 @@ public class ExploreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_explore);
-
+        makeLocations();
         explore=findViewById(R.id.showPath);
 
         explore.setOnClickListener(new View.OnClickListener() {
@@ -265,5 +265,82 @@ public class ExploreActivity extends AppCompatActivity {
                 .setNegativeButton("Cancel", (dialog, id) -> dialog.cancel());
         AlertDialog alert = builder.create();
         alert.show();
+    }
+
+    private void makeLocations() {
+        {
+            String[] places = {"LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffroom", "CS Staffroom", "Texas Instruments Lab"};
+            Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList("Balcony", places[4], places[1])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomLeft, PlacePosition.topLeft)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 3, false, 180f, null, null, null, null, null);
+            Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[6], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 3, false, 0f, null, null, null, null, null);
+            Location node2 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.bottomLeft)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 3, false, 0f, null, null, null, null, null);
+            Location node3 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[3], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 3, false, 0f, null, null, null, null, null);
+            Location node4 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[9], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 3, false, 45f, null, null, null, null, null);
+            Location node5 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[0], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 3, false, 135f, null, null, null, null, null);
+            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 3, true, 0f, null, null, null, null, null);
+            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 3, true, 0f, null, null, null, null, null);
+            makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
+            LevelPointer.levels[3] = node0;
+        }
+        {
+            Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.topRight)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 180f, null, null, null, null, null);
+            Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[7], "StaffRoom", "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
+            Location node2 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[6], "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.left)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
+            Location node3 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[4], places[10], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 45f, null, null, null, null, null);
+            Location node4 = new Location("Balcony", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.topLeft, PlacePosition.right)), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 135f, null, null, null, null, null);
+            Location node5 = new Location("Balcony", new ArrayList<String>(), new ArrayList<Integer>(), getImageResourceId(getApplicationContext(), "LH211.jpg"), 2, false, 0f, null, null, null, null, null);
+            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 2, true, 0f, null, null, null, null, null);
+            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), getImageResourceId(getApplicationContext(), "stairs.jpg"), 2, true, 0f, null, null, null, null, null);
+
+            makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
+
+            LevelPointer.levels[2] = node0;
+        }
+
+        //connecting stairs
+        LevelPointer.levels[2].getStairs().setStairs(LevelPointer.levels[3].getStairs());
+        LevelPointer.levels[2].setStairsAngle(-10);
+
+        LevelPointer.levels[3].getStairs().setStairs(LevelPointer.levels[2].getStairs());
+        LevelPointer.levels[3].setStairsAngle(10);
+
+        LevelPointer.levels[2].getRight().getStairs().setStairs(LevelPointer.levels[3].getRight().getStairs());
+        LevelPointer.levels[2].getRight().setStairsAngle(-10);
+
+        LevelPointer.levels[3].getRight().getStairs().setStairs(LevelPointer.levels[2].getRight().getStairs());
+        LevelPointer.levels[3].getRight().setStairsAngle(10);
+
+    }
+    public static int getImageResourceId(Context context, String imageName) {
+        return context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());
+    }
+
+    private void makeConnections(Location node0,Location node1,Location node2,Location node3,Location node4,Location node5,Location stairs1,Location stairs2){
+        node0.setLeft(node1);
+        node0.setRight(node5);
+        node0.setBack(node3);
+
+        node1.setRight(node0);
+        node1.setBack(node2);
+
+        node2.setFront(node1);
+        node2.setRight(node3);
+
+        node3.setFront(node0);
+        node3.setLeft(node2);
+        node3.setRight(node4);
+
+        node4.setLeft(node3);
+        node4.setFront(node5);
+
+        node5.setBack(node4);
+        node5.setLeft(node0);
+
+        node0.setStairs(stairs1);
+        node5.setStairs(stairs2);
+        node4.setStairs(stairs2);
+
+        stairs1.setFront(node0);
+
+        stairs2.setLeft(node5);
     }
 }
