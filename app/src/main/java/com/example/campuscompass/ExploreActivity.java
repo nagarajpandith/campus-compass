@@ -27,6 +27,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ExploreActivity extends AppCompatActivity {
@@ -58,10 +59,10 @@ public class ExploreActivity extends AppCompatActivity {
         source = findViewById(R.id.source);
         dest = findViewById(R.id.dest);
 
-        ArrayAdapter<CharSequence> places = ArrayAdapter.createFromResource(this, R.array.places_array, android.R.layout.simple_spinner_item);
-        places.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        source.setAdapter(places);
-        dest.setAdapter(places);
+        ArrayAdapter<String> sourceAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, getFilteredPlaces());
+        source.setAdapter(sourceAdapter);
+        ArrayAdapter<String> destAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, getFilteredPlaces());
+        dest.setAdapter(destAdapter);
 
         wifi_name=findViewById(R.id.wifi_name);
         checkLocation();
@@ -125,12 +126,17 @@ public class ExploreActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     for (int j = 0; j < pills.length; j++) {
                         if (j == index) {
-                            selectedLevel = index;
+                            selectedLevel = index+2;
                             pills[j].setBackgroundResource(R.drawable.selected_pill);
                             if(index==0){replaceFragment(new SecondFloor());}
                             if(index==1){replaceFragment(new ThirdFloor());}
                             if(index==2){replaceFragment(new FourthFloor());}
                             if(index==3){replaceFragment(new FifthFloor());}
+                            sourceAdapter.clear();
+                            sourceAdapter.addAll(getFilteredPlaces());
+
+                            destAdapter.clear();
+                            destAdapter.addAll(getFilteredPlaces());
                         } else {
                             pills[j].setBackgroundResource(R.drawable.pill_tab);
                         }
@@ -140,6 +146,16 @@ public class ExploreActivity extends AppCompatActivity {
         }
 
         // ToDo: set selected_pill floor button by nearest WiFi name
+    }
+
+    private List<String> getFilteredPlaces() {
+        List<String> filteredPlaces = new ArrayList<>();
+        for (int i = 0; i < places.length; i++) {
+            if (placesLevels[i] == selectedLevel) {
+                filteredPlaces.add(places[i]);
+            }
+        }
+        return filteredPlaces;
     }
 
     private void replaceFragment(Fragment f) {
@@ -166,13 +182,13 @@ public class ExploreActivity extends AppCompatActivity {
                 bestSignal = result;
             }
         }
-//        if (bestSignal != null) {
-//            String ssid = bestSignal.SSID;
-//            String bssid = bestSignal.BSSID;
-//            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
-//            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
-//            wifi_name.setText(message);
-//        }
+        if (bestSignal != null) {
+            String ssid = bestSignal.SSID;
+            String bssid = bestSignal.BSSID;
+            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
+            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
+            wifi_name.setText(message);
+        }
     }
 
 
