@@ -42,6 +42,7 @@ public class ExploreActivity extends AppCompatActivity {
     Spinner source, dest;
     WifiManager wifiManager;
     int curFloor;
+    int selectedLevel;
     String []places = {"LH301", "LH302", "BTL10", "BTL07", "BT HOD Cabin", "LH210", "LH211", "LH212", "Dept of Physical Education", "BT Staffroom", "Biokinetics Lab", "Instrumentation and Project Lab", "LH306", "LH308", "LH309", "LH309", "LH310", "LH311", "LH312", "EC Staffrom", "CS Staffrom 3rd Floor", "Texas Instruments Lab", "CSL01", "CSL02", "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin", "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG", "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08", "CFR03", "CS Staffrom 5th Floor"};
     int []placesLevels={2,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
     List <String> wifi=new ArrayList<>(Arrays.asList("AndroidAP","Redmi7"));
@@ -68,9 +69,9 @@ public class ExploreActivity extends AppCompatActivity {
         source = findViewById(R.id.source);
         dest = findViewById(R.id.dest);
 
-        ArrayAdapter<String> sourceAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, getFilteredPlaces());
+        ArrayAdapter<String> sourceAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, places);
         source.setAdapter(sourceAdapter);
-        ArrayAdapter<String> destAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, getFilteredPlaces());
+        ArrayAdapter<String> destAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, places);
         dest.setAdapter(destAdapter);
 
         wifi_name=findViewById(R.id.wifi_name);
@@ -142,10 +143,10 @@ public class ExploreActivity extends AppCompatActivity {
                             if(index==2){replaceFragment(new FourthFloor());}
                             if(index==3){replaceFragment(new FifthFloor());}
                             sourceAdapter.clear();
-                            sourceAdapter.addAll(getFilteredPlaces());
+                            sourceAdapter.addAll(places);
 
                             destAdapter.clear();
-                            destAdapter.addAll(getFilteredPlaces());
+                            destAdapter.addAll(places);
                         } else {
                             pills[j].setBackgroundResource(R.drawable.pill_tab);
                         }
@@ -157,15 +158,15 @@ public class ExploreActivity extends AppCompatActivity {
         // ToDo: set selected_pill floor button by nearest WiFi name
     }
 
-    private List<String> getFilteredPlaces() {
-        List<String> filteredPlaces = new ArrayList<>();
-        for (int i = 0; i < places.length; i++) {
-            if (placesLevels[i] == selectedLevel) {
-                filteredPlaces.add(places[i]);
-            }
-        }
-        return filteredPlaces;
-    }
+//    private List<String> getFilteredPlaces() {
+//        List<String> filteredPlaces = new ArrayList<>();
+//        for (int i = 0; i < places.length; i++) {
+//            if (placesLevels[i] == selectedLevel) {
+//                filteredPlaces.add(places[i]);
+//            }
+//        }
+//        return filteredPlaces;
+//    }
 
     private void replaceFragment(Fragment f) {
         FragmentManager fm = getSupportFragmentManager();
