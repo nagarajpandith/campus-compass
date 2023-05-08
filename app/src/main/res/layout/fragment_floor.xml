@@ -24,19 +24,28 @@
                 android:id="@+id/topleftNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/topNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/toprightNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
         <TableRow
@@ -45,22 +54,32 @@
 
             <TextView
                 android:id="@+id/leftNode0"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+
+                />
 
             <TextView
                 android:id="@+id/Node0"
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/rightNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
         <TableRow
@@ -71,19 +90,28 @@
                 android:id="@+id/bottomleftNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomrightNode0"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
     </TableLayout>
@@ -107,19 +135,28 @@
                 android:id="@+id/topleftNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/topNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/toprightNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
         </TableRow>
 
@@ -129,22 +166,32 @@
 
             <TextView
                 android:id="@+id/leftNode1"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+
+                />
 
             <TextView
                 android:id="@+id/Node1"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/rightNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
         <TableRow
@@ -155,19 +202,28 @@
                 android:id="@+id/bottomleftNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomrightNode1"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
     </TableLayout>
@@ -191,19 +247,28 @@
                 android:id="@+id/topleftNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/topNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/toprightNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
         <TableRow
@@ -214,20 +279,30 @@
                 android:id="@+id/leftNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/Node2"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/rightNode2"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+
+                />
         </TableRow>
 
         <TableRow
@@ -238,19 +313,28 @@
                 android:id="@+id/bottomleftNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomrightNode2"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
     </TableLayout>
@@ -273,19 +357,28 @@
                 android:id="@+id/topleftNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/topNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/toprightNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
         </TableRow>
 
@@ -297,20 +390,30 @@
                 android:id="@+id/leftNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/Node3"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/rightNode3"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+
+                />
         </TableRow>
 
         <TableRow
@@ -321,19 +424,28 @@
                 android:id="@+id/bottomleftNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomrightNode3"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
     </TableLayout>
@@ -357,19 +469,28 @@
                 android:id="@+id/topleftNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/topNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/toprightNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
         </TableRow>
 
@@ -381,20 +502,30 @@
                 android:id="@+id/leftNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/Node4"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/rightNode4"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+
+                />
         </TableRow>
 
         <TableRow
@@ -405,19 +536,28 @@
                 android:id="@+id/bottomleftNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomrightNode4"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
     </TableLayout>
@@ -441,19 +581,28 @@
                 android:id="@+id/topleftNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/topNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/toprightNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
         <TableRow
@@ -462,22 +611,31 @@
 
             <TextView
                 android:id="@+id/leftNode5"
-                android:layout_width="50dp"
+                android:layout_width="wrap_content"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/Node5"
                 android:layout_width="25dp"
                 android:layout_height="match_parent"
                 android:background="#FF0F53"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/rightNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
         <TableRow
@@ -488,19 +646,28 @@
                 android:id="@+id/bottomleftNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
 
             <TextView
                 android:id="@+id/bottomrightNode5"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="8sp"
+                android:gravity="center_vertical"
+                />
         </TableRow>
 
     </TableLayout>
@@ -519,20 +686,33 @@
         app:layout_constraintVertical_bias="0.601" />
 
     <View
-        android:id="@+id/v1"
-        android:layout_width="85dp"
+        android:id="@+id/line5s"
+        android:layout_width="55dp"
         android:layout_height="10dp"
         android:layout_marginTop="48dp"
         android:background="#FF0F53"
         app:layout_constraintBottom_toBottomOf="@id/Table5"
         app:layout_constraintEnd_toEndOf="@+id/Table4"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="@id/Table5"
         app:layout_constraintTop_toTopOf="@+id/Table4"
-        app:layout_constraintVertical_bias="0.239" />
+        app:layout_constraintVertical_bias="0.293" />
 
     <View
-        android:id="@+id/v4"
+        android:id="@+id/line4s"
+        android:layout_width="30dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="48dp"
+        android:background="#FF0F53"
+        app:layout_constraintBottom_toBottomOf="@id/Table5"
+        app:layout_constraintEnd_toEndOf="@+id/Table4"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="@+id/line5s"
+        app:layout_constraintTop_toTopOf="@+id/Table4"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <View
+        android:id="@+id/line50"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -544,7 +724,7 @@
         app:layout_constraintVertical_bias="0.503" />
 
     <View
-        android:id="@+id/v6"
+        android:id="@+id/line01"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -556,7 +736,7 @@
         app:layout_constraintVertical_bias="0.496" />
 
     <View
-        android:id="@+id/v7"
+        android:id="@+id/line23"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -568,19 +748,20 @@
         app:layout_constraintVertical_bias="0.496" />
 
     <View
-        android:id="@+id/v8"
+        android:id="@+id/linestairs2"
         android:layout_width="10dp"
         android:layout_height="15dp"
+        android:layout_marginTop="87dp"
         android:background="#FF0F53"
         app:layout_constraintBottom_toBottomOf="@+id/stairs1"
-        app:layout_constraintEnd_toEndOf="@+id/v2"
-        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintEnd_toStartOf="@+id/Table3"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="@+id/stairs1"
-        app:layout_constraintTop_toTopOf="@+id/v2"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toTopOf="@+id/Table3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
-        android:id="@+id/v5"
+        android:id="@+id/line34"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -592,33 +773,45 @@
         app:layout_constraintVertical_bias="0.503" />
 
     <View
-        android:id="@+id/v9"
+        android:id="@+id/linestairs1"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:background="#FF0F53"
-        app:layout_constraintBottom_toBottomOf="@+id/v1"
+        app:layout_constraintBottom_toBottomOf="@+id/line5s"
         app:layout_constraintEnd_toEndOf="@+id/stairs2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/Table5"
-        app:layout_constraintStart_toStartOf="@+id/v1"
+        app:layout_constraintStart_toStartOf="@+id/line5s"
         app:layout_constraintTop_toTopOf="@+id/stairs2"
         app:layout_constraintVertical_bias="0.837" />
 
     <View
-        android:id="@+id/v2"
-        android:layout_width="85dp"
+        android:id="@+id/line0s"
+        android:layout_width="40dp"
         android:layout_height="10dp"
         android:background="#FF0F53"
         app:layout_constraintBottom_toBottomOf="@+id/Table0"
         app:layout_constraintEnd_toEndOf="@+id/Table3"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="@+id/Table0"
         app:layout_constraintTop_toTopOf="@+id/Table3"
         app:layout_constraintVertical_bias="0.492" />
 
     <View
-        android:id="@+id/v3"
+        android:id="@+id/line3s"
+        android:layout_width="45dp"
+        android:layout_height="10dp"
+        android:background="#FF0F53"
+        app:layout_constraintBottom_toBottomOf="@+id/Table0"
+        app:layout_constraintEnd_toEndOf="@+id/Table3"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="@+id/Table0"
+        app:layout_constraintTop_toTopOf="@+id/Table3"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <View
+        android:id="@+id/line12"
         android:layout_width="85dp"
         android:layout_height="10dp"
         android:background="#FF0F53"
