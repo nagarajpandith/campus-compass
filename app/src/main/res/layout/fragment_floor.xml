@@ -519,20 +519,33 @@
         app:layout_constraintVertical_bias="0.601" />
 
     <View
-        android:id="@+id/v1"
-        android:layout_width="85dp"
+        android:id="@+id/line5s"
+        android:layout_width="55dp"
         android:layout_height="10dp"
         android:layout_marginTop="48dp"
         android:background="#FF0F53"
         app:layout_constraintBottom_toBottomOf="@id/Table5"
         app:layout_constraintEnd_toEndOf="@+id/Table4"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="@id/Table5"
         app:layout_constraintTop_toTopOf="@+id/Table4"
-        app:layout_constraintVertical_bias="0.239" />
+        app:layout_constraintVertical_bias="0.293" />
 
     <View
-        android:id="@+id/v4"
+        android:id="@+id/line4s"
+        android:layout_width="30dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="48dp"
+        android:background="#FF0F53"
+        app:layout_constraintBottom_toBottomOf="@id/Table5"
+        app:layout_constraintEnd_toEndOf="@+id/Table4"
+        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintStart_toStartOf="@+id/line5s"
+        app:layout_constraintTop_toTopOf="@+id/Table4"
+        app:layout_constraintVertical_bias="0.293" />
+
+    <View
+        android:id="@+id/line50"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -544,7 +557,7 @@
         app:layout_constraintVertical_bias="0.503" />
 
     <View
-        android:id="@+id/v6"
+        android:id="@+id/line01"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -556,7 +569,7 @@
         app:layout_constraintVertical_bias="0.496" />
 
     <View
-        android:id="@+id/v7"
+        android:id="@+id/line23"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -568,19 +581,20 @@
         app:layout_constraintVertical_bias="0.496" />
 
     <View
-        android:id="@+id/v8"
+        android:id="@+id/linestairs2"
         android:layout_width="10dp"
         android:layout_height="15dp"
+        android:layout_marginTop="87dp"
         android:background="#FF0F53"
         app:layout_constraintBottom_toBottomOf="@+id/stairs1"
-        app:layout_constraintEnd_toEndOf="@+id/v2"
-        app:layout_constraintHorizontal_bias="0.254"
+        app:layout_constraintEnd_toStartOf="@+id/Table3"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="@+id/stairs1"
-        app:layout_constraintTop_toTopOf="@+id/v2"
-        app:layout_constraintVertical_bias="0.227" />
+        app:layout_constraintTop_toTopOf="@+id/Table3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
-        android:id="@+id/v5"
+        android:id="@+id/line34"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:background="#FF0F53"
@@ -592,33 +606,45 @@
         app:layout_constraintVertical_bias="0.503" />
 
     <View
-        android:id="@+id/v9"
+        android:id="@+id/linestairs1"
         android:layout_width="10dp"
         android:layout_height="50dp"
         android:layout_marginStart="50dp"
         android:background="#FF0F53"
-        app:layout_constraintBottom_toBottomOf="@+id/v1"
+        app:layout_constraintBottom_toBottomOf="@+id/line5s"
         app:layout_constraintEnd_toEndOf="@+id/stairs2"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/Table5"
-        app:layout_constraintStart_toStartOf="@+id/v1"
+        app:layout_constraintStart_toStartOf="@+id/line5s"
         app:layout_constraintTop_toTopOf="@+id/stairs2"
         app:layout_constraintVertical_bias="0.837" />
 
     <View
-        android:id="@+id/v2"
-        android:layout_width="85dp"
+        android:id="@+id/line0s"
+        android:layout_width="40dp"
         android:layout_height="10dp"
         android:background="#FF0F53"
         app:layout_constraintBottom_toBottomOf="@+id/Table0"
         app:layout_constraintEnd_toEndOf="@+id/Table3"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="@+id/Table0"
         app:layout_constraintTop_toTopOf="@+id/Table3"
         app:layout_constraintVertical_bias="0.492" />
 
     <View
-        android:id="@+id/v3"
+        android:id="@+id/line3s"
+        android:layout_width="45dp"
+        android:layout_height="10dp"
+        android:background="#FF0F53"
+        app:layout_constraintBottom_toBottomOf="@+id/Table0"
+        app:layout_constraintEnd_toEndOf="@+id/Table3"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="@+id/Table0"
+        app:layout_constraintTop_toTopOf="@+id/Table3"
+        app:layout_constraintVertical_bias="0.492" />
+
+    <View
+        android:id="@+id/line12"
         android:layout_width="85dp"
         android:layout_height="10dp"
         android:background="#FF0F53"
