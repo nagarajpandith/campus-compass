@@ -102,7 +102,7 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
         }
         if(current.getDown()!=null && current.getDown().getInRoute())
         {
-            stairs.setVisibility(View.VISIBLE);
+            down.setVisibility(View.VISIBLE);
             down.setRotation(current.getDownAngle());
         }
 
@@ -138,7 +138,7 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View view) {
                 current=current.getStairs();
-                Log.d("ajds", "onClick: "+current.getName());
+                Log.d("skf", "onClick: stairs");
                 reCalibrate();
             }
         });
@@ -146,7 +146,7 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View view) {
                 current=current.getUp();
-
+                Log.d("skf", "onClick: up");
                 reCalibrate();
             }
         });
@@ -154,6 +154,7 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
             @Override
             public void onClick(View view) {
                 current=current.getDown();
+                Log.d("skf", "onClick: down");
                 reCalibrate();
             }
         });
@@ -208,6 +209,9 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
         {
             arrows[i].setVisibility(View.INVISIBLE);
         }
+        down.setVisibility(View.INVISIBLE);
+        up.setVisibility(View.INVISIBLE);
+        stairs.setVisibility(View.INVISIBLE);
 
         if(current.getFront()!=null && current.getFront().getInRoute()){
             arrows[0].setVisibility(View.VISIBLE);
@@ -234,7 +238,7 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
         }
         if(current.getDown()!=null && current.getDown().getInRoute())
         {
-            stairs.setVisibility(View.VISIBLE);
+            down.setVisibility(View.VISIBLE);
             down.setRotation(current.getDownAngle()+current.getAngle());
         }
 

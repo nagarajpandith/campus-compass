@@ -321,12 +321,13 @@ public class ExploreActivity extends AppCompatActivity {
             Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[3], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), R.drawable.three3, 3, false, 0f, null, null, null, null, null);
             Location node4 = new Location("TI Lab", new ArrayList<String>(Arrays.asList(places[9], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 45f, null, null, null, null, null);
             Location node5 = new Location("LH306", new ArrayList<String>(Arrays.asList(places[0], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 135f, null, null, null, null, null);
-            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 3, true, 0f, null, null, null, null, null);
+            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs1, 3, true, 0f, null, null, null, null, null);
             Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 3, true, 0f, null, null, null, null, null);
             makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
             node0.setAngle(180);
             node3.setAngle(180);
             node2.setAngle(-90);
+            stairs1.setAngle(180);
             LevelPointer.levels[3] = node0;
         }
         {
@@ -341,7 +342,7 @@ public class ExploreActivity extends AppCompatActivity {
             Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 2, true, 0f, null, null, null, null, null);
             node0.setAngle(180);
             node1.setAngle(180);
-
+            stairs1.setAngle(180);
             node3.setAngle(-90);
             makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
 

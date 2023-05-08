@@ -40,6 +40,10 @@ public class Location {
         this.placePositions=placePositions;
         this.inRoute=false;
         this.angle=0;
+        this.up=null;
+        this.down=null;
+        this.upAngle=0;
+        this.downAngle=0;
     }
 
     public String getName() {
