@@ -167,6 +167,7 @@ public class ExploreActivity extends AppCompatActivity {
                     for (int j = 0; j < pills.length; j++) {
                         if (j == index) {
                             selectedLevel = index+2;
+                            pills[j].setBackgroundResource(R.drawable.selected_pill);
                                 Bundle bundle = new Bundle();
                                 bundle.putInt("level",selectedLevel);
                                 Floor f=new Floor();
