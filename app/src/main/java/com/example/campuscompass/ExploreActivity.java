@@ -233,7 +233,7 @@ public class ExploreActivity extends AppCompatActivity {
         }
 
         for (int i = 1; i < floor.length; i++) {
-            if (floor[i] > floor[curFloor]) {
+            if (floor[i] >floor[curFloor]) {
                 curFloor = i;
             }
         }
@@ -250,16 +250,17 @@ public class ExploreActivity extends AppCompatActivity {
 //            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
 ////            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
 //            wifi_name.setText("Floor : "+curFloor);
-//            if(curFloor==0)
-//                curFloor=2;
-//            Bundle bundle = new Bundle();
-//            bundle.putInt("level",curFloor);
-//            Floor f=new Floor();
-//            f.setArguments(bundle);
-//            FragmentManager fm = getSupportFragmentManager();
-//            FragmentTransaction ft = fm.beginTransaction();
-//            ft.replace(R.id.frame,f);
-//            ft.commit();
+            if(curFloor==0)
+                curFloor=2;
+            Bundle bundle = new Bundle();
+            bundle.putInt("level",curFloor);
+            Floor f=new Floor();
+            f.setArguments(bundle);
+        wifi_name.setText("Level: "+curFloor);
+            FragmentManager fm = getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.frame,f);
+            ft.commit();
 ////        }
 //        else{
 //            wifi_name.setText("Floor : "+curFloor);
@@ -320,8 +321,8 @@ public class ExploreActivity extends AppCompatActivity {
             Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[3], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), R.drawable.three3, 3, false, 0f, null, null, null, null, null);
             Location node4 = new Location("TI Lab", new ArrayList<String>(Arrays.asList(places[9], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 45f, null, null, null, null, null);
             Location node5 = new Location("LH306", new ArrayList<String>(Arrays.asList(places[0], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 135f, null, null, null, null, null);
-            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), R.id.stairs2, 3, true, 0f, null, null, null, null, null);
-            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.id.stairs2, 3, true, 0f, null, null, null, null, null);
+            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 3, true, 0f, null, null, null, null, null);
+            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 3, true, 0f, null, null, null, null, null);
             makeConnections(node0,node1,node2,node3,node4,node5,stairs1,stairs2);
             node0.setAngle(180);
             node3.setAngle(180);
@@ -336,8 +337,8 @@ public class ExploreActivity extends AppCompatActivity {
             Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[4], places[10], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)), R.drawable.second3, 2, false, 45f, null, null, null, null, null);
             Location node4 = new Location("BTL07", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.topLeft, PlacePosition.right)), R.drawable.second4, 2, false, 135f, null, null, null, null, null);
             Location node5 = new Location("Unknown", new ArrayList<String>(), new ArrayList<Integer>(), R.drawable.second4, 2, false, 0f, null, null, null, null, null);
-            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(),R.id.stairs1, 2, true, 0f, null, null, null, null, null);
-            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.id.stairs2, 2, true, 0f, null, null, null, null, null);
+            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(),R.drawable.stairs1, 2, true, 0f, null, null, null, null, null);
+            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 2, true, 0f, null, null, null, null, null);
             node0.setAngle(180);
             node1.setAngle(180);
 
@@ -349,15 +350,15 @@ public class ExploreActivity extends AppCompatActivity {
 
         //connecting stairs
         LevelPointer.levels[2].getStairs().setUp(LevelPointer.levels[3].getStairs());
-        LevelPointer.levels[2].setStairsAngle(-10);
+        LevelPointer.levels[2].getStairs().setUpAngle(-170);
 
         LevelPointer.levels[3].getStairs().setDown(LevelPointer.levels[2].getStairs());
-        LevelPointer.levels[3].setStairsAngle(10);
+        LevelPointer.levels[3].getStairs().setDownAngle(170);
 
         LevelPointer.levels[2].getRight().getStairs().setUp(LevelPointer.levels[3].getRight().getStairs());
-
+        LevelPointer.levels[2].getRight().setUpAngle(-170);
         LevelPointer.levels[3].getRight().getStairs().setDown(LevelPointer.levels[2].getRight().getStairs());
-
+        LevelPointer.levels[3].getRight().getStairs().setUpAngle(170);
     }
     public static int getImageResourceId(Context context, String imageName) {
         return context.getResources().getIdentifier(imageName, "drawable", context.getPackageName());

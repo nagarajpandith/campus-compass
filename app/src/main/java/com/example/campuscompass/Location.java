@@ -20,6 +20,9 @@ public class Location {
 
     private Location up;
     private Location down;
+
+    private float upAngle;
+    private float downAngle;
     private float angle;
 
     public Location(String name, ArrayList<String> places,ArrayList<Integer> placePositions, int image, int level, boolean isStairs, float stairsAngle, Location stairs, Location left, Location right, Location front, Location back) {
@@ -111,5 +114,11 @@ public class Location {
     public void setAngle(float angle){this.angle=angle;}
 
     public float getAngle() {return angle;}
+
+    public void setUpAngle(float upAngle){this.upAngle=upAngle;}
+    public float getUpAngle(){return this.upAngle;}
+
+    public void setDownAngle(float downAngle){this.downAngle=downAngle;}
+    public float getDownAngle(){return this.downAngle;}
 }
 

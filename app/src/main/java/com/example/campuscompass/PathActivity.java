@@ -26,6 +26,9 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
 
 
     ImageButton []arrows=new ImageButton[4];
+    ImageButton up;
+    ImageButton down;
+    ImageButton stairs;
     float []arrowsAngles={0,180,-90,90};
     Location current;
     Location previousCurrent=null;
@@ -47,6 +50,10 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
         arrows[1]=findViewById(R.id.back);
         arrows[2]=findViewById(R.id.left);
         arrows[3]=findViewById(R.id.right);
+        stairs=findViewById(R.id.stair);
+        up=findViewById(R.id.upStairs);
+        down=findViewById(R.id.downStairs);
+
 
         for(int i=0;i<4;i++)
         {
@@ -56,6 +63,20 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
             arrows[i].setRotationX(20);
             arrows[i].setVisibility(View.INVISIBLE);
         }
+        stairs.setPivotX(pivotX);
+        stairs.setPivotY(pivotY);
+        stairs.setRotationX(20);
+        stairs.setVisibility(View.INVISIBLE);
+
+        up.setPivotX(pivotX);
+        up.setPivotY(pivotY);
+        up.setRotationX(20);
+        up.setVisibility(View.INVISIBLE);
+
+        down.setPivotX(pivotX);
+        down.setPivotY(pivotY);
+        down.setRotationX(20);
+        down.setVisibility(View.INVISIBLE);
 
         if(current.getFront()!=null && current.getFront().getInRoute()){
             arrows[0].setVisibility(View.VISIBLE);
@@ -68,6 +89,21 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
         }
         if(current.getRight()!=null && current.getRight().getInRoute()){
             arrows[3].setVisibility(View.VISIBLE);
+        }
+        if(current.getStairs()!=null && current.getStairs().getInRoute())
+        {
+            stairs.setVisibility(View.VISIBLE);
+            stairs.setRotation(current.getStairsAngle());
+        }
+        if(current.getUp()!=null && current.getUp().getInRoute())
+        {
+            up.setVisibility(View.VISIBLE);
+            up.setRotation(current.getUpAngle());
+        }
+        if(current.getDown()!=null && current.getDown().getInRoute())
+        {
+            stairs.setVisibility(View.VISIBLE);
+            down.setRotation(current.getDownAngle());
         }
 
         arrows[0].setOnClickListener(new View.OnClickListener() {
@@ -98,6 +134,30 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
                 reCalibrate();
             }
         });
+        stairs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getStairs();
+                Log.d("ajds", "onClick: "+current.getName());
+                reCalibrate();
+            }
+        });
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getUp();
+
+                reCalibrate();
+            }
+        });
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                current=current.getDown();
+                reCalibrate();
+            }
+        });
+
 
         sensorManager=(SensorManager) getSystemService(Context.SENSOR_SERVICE);
         gyroSensor=sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
@@ -132,6 +192,9 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
                 {
                     arrows[i].setRotation(arrowsAngles[i]-yawAndPitch[0]+current.getAngle());
                 }
+                stairs.setRotation(current.getStairsAngle()-yawAndPitch[0]+current.getAngle());
+                up.setRotation(current.getUpAngle()-yawAndPitch[0]+current.getAngle());
+                down.setRotation(current.getDownAngle()-yawAndPitch[0]+current.getAngle());
             }
     }
 
@@ -158,6 +221,23 @@ public class PathActivity extends AppCompatActivity implements SensorEventListen
         if(current.getRight()!=null && current.getRight().getInRoute()){
             arrows[3].setVisibility(View.VISIBLE);
         }
+
+        if(current.getStairs()!=null && current.getStairs().getInRoute())
+        {
+            stairs.setVisibility(View.VISIBLE);
+            stairs.setRotation(current.getStairsAngle()+current.getAngle());
+        }
+        if(current.getUp()!=null && current.getUp().getInRoute())
+        {
+            up.setVisibility(View.VISIBLE);
+            up.setRotation(current.getUpAngle()+current.getAngle());
+        }
+        if(current.getDown()!=null && current.getDown().getInRoute())
+        {
+            stairs.setVisibility(View.VISIBLE);
+            down.setRotation(current.getDownAngle()+current.getAngle());
+        }
+
         VrPanoramaView.Options options = new VrPanoramaView.Options();
         try {
             options.inputType = VrPanoramaView.Options.TYPE_MONO;
