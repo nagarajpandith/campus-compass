@@ -59,6 +59,7 @@ public class ExploreActivity extends AppCompatActivity {
 
     Deque<Location> traverse=new LinkedList<Location>();
     Deque<Location> smallest=new LinkedList<Location>();
+    Button[] pills = new Button[4];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,6 @@ public class ExploreActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        Button[] pills = new Button[4];
         source = findViewById(R.id.source);
         dest = findViewById(R.id.dest);
 
@@ -129,6 +129,10 @@ public class ExploreActivity extends AppCompatActivity {
                     f.setArguments(bundle);
                     replaceFragment(f);
                     CurrentPointer.current=src;
+                    for (int j = 0; j < pills.length; j++) {
+                        pills[j].setBackgroundResource(R.drawable.pill_tab);
+                    }
+                    pills[src.getLevel()-2].setBackgroundResource(R.drawable.selected_pill);
                 }
             }
             @Override
@@ -150,6 +154,10 @@ public class ExploreActivity extends AppCompatActivity {
                     Floor f=new Floor();
                     f.setArguments(bundle);
                     replaceFragment(f);
+                    for (int j = 0; j < pills.length; j++) {
+                            pills[j].setBackgroundResource(R.drawable.pill_tab);
+                    }
+                    pills[src.getLevel()-2].setBackgroundResource(R.drawable.selected_pill);
                     CurrentPointer.current=src;
                 }
             }
@@ -256,11 +264,12 @@ public class ExploreActivity extends AppCompatActivity {
             bundle.putInt("level",curFloor);
             Floor f=new Floor();
             f.setArguments(bundle);
-        wifi_name.setText("Level: "+curFloor);
+            wifi_name.setText("Level: "+curFloor);
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.frame,f);
             ft.commit();
+            pills[selectedLevel-2].setBackgroundResource(R.drawable.selected_pill);
 ////        }
 //        else{
 //            wifi_name.setText("Floor : "+curFloor);
@@ -336,7 +345,7 @@ public class ExploreActivity extends AppCompatActivity {
             Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[7], "StaffRoom", "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)),R.drawable.second1 , 2, false, 0f, null, null, null, null, null);
             Location node2 = new Location("LH211", new ArrayList<String>(Arrays.asList(places[6], "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.left)),R.drawable.second2, 2, false, 0f, null, null, null, null, null);
             Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[4], places[10], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)), R.drawable.second3, 2, false, 45f, null, null, null, null, null);
-            Location node4 = new Location("BTL07", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.topLeft, PlacePosition.right)), R.drawable.second4, 2, false, 135f, null, null, null, null, null);
+            Location node4 = new Location("BTL07", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.topLeft, PlacePosition.right)), R.drawable.second4, 2, false, 135f, null, null, null, null, null);
             Location node5 = new Location("Unknown", new ArrayList<String>(), new ArrayList<Integer>(), R.drawable.second4, 2, false, 0f, null, null, null, null, null);
             Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(),R.drawable.stairs1, 2, true, 0f, null, null, null, null, null);
             Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 2, true, 0f, null, null, null, null, null);

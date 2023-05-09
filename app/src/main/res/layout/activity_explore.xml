@@ -291,23 +291,6 @@
             android:layout_height="60dp">
 
             <Button
-                android:id="@+id/generate"
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:background="@drawable/rounded_corner"
-                android:backgroundTint="#E6394F"
-                android:capitalize="none"
-                android:fontFamily="@font/font1"
-                android:text="Generate"
-                android:textAllCaps="false"
-                android:textColor="#FFFFFF"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.111"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
                 android:id="@+id/showPath"
                 android:layout_width="100dp"
                 android:layout_height="40dp"
@@ -319,7 +302,7 @@
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.876"
+                app:layout_constraintHorizontal_bias="0.418"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
